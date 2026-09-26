@@ -1,0 +1,327 @@
+:root {
+  --bg: #121014;
+  --bg-raised: #1b1820;
+  --line: #2e2a35;
+  --text: #f2eee7;
+  --text-dim2: #9a94a1;
+  --amber: #e0a63b;
+  --amber-deep: #b9832a;
+  --teal: #4fb3a9;
+  --danger: #d9695f;
+  --radius: 10px;
+  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+}
+
+button { font-family: inherit; }
+
+.screen {
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* ---------------- Home screen ---------------- */
+
+#home-screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 20px;
+  background:
+    radial-gradient(ellipse 800px 500px at 50% -10%, rgba(224,166,59,0.10), transparent),
+    var(--bg);
+}
+
+.home-wrap {
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+}
+
+.wordmark {
+  font-size: 2.6rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0 0 6px;
+}
+
+.tagline {
+  color: var(--text-dim2);
+  margin: 0 0 32px;
+  font-size: 1.05rem;
+}
+
+.panel {
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 24px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: none;
+  border-radius: 8px;
+  padding: 13px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.08s ease, background 0.15s ease;
+}
+.btn:active { transform: scale(0.97); }
+
+.btn-primary {
+  background: var(--amber);
+  color: #201804;
+  width: 100%;
+}
+.btn-primary:hover { background: #ecb355; }
+
+.btn-secondary {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--line);
+}
+.btn-secondary:hover { border-color: var(--amber); color: var(--amber); }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-dim2);
+  border: 1px solid var(--line);
+  padding: 8px 14px;
+  font-size: 0.9rem;
+}
+.btn-ghost:hover { color: var(--danger); border-color: var(--danger); }
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--text-dim2);
+  font-size: 0.85rem;
+  margin: 18px 0;
+}
+.divider::before, .divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+}
+
+.join-form {
+  display: flex;
+  gap: 8px;
+}
+
+.code-input {
+  flex: 1;
+  min-width: 0;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--text);
+  padding: 13px 14px;
+  font-size: 1.05rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+.code-input:focus {
+  outline: none;
+  border-color: var(--amber);
+}
+.code-input::placeholder { letter-spacing: 0.08em; color: var(--text-dim2); }
+
+.error-text {
+  color: var(--danger);
+  margin-top: 16px;
+  font-size: 0.92rem;
+}
+
+.how-it-works {
+  text-align: left;
+  color: var(--text-dim2);
+  font-size: 0.88rem;
+  line-height: 1.7;
+  margin: 32px 0 0;
+  padding-left: 20px;
+}
+
+/* ---------------- Room screen ---------------- */
+
+#room-screen {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.room-bar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--line);
+  background: var(--bg-raised);
+  flex: 0 0 auto;
+}
+
+.room-code-badge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.85rem;
+  color: var(--text-dim2);
+}
+.room-code-badge strong {
+  color: var(--amber);
+  letter-spacing: 0.14em;
+  font-size: 1rem;
+}
+.room-code-badge button {
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--text-dim2);
+  border-radius: 6px;
+  padding: 3px 9px;
+  font-size: 0.78rem;
+  cursor: pointer;
+}
+.room-code-badge button:hover { color: var(--text); border-color: var(--text-dim2); }
+
+.peer-status {
+  flex: 1;
+  font-size: 0.85rem;
+  color: var(--text-dim2);
+}
+.peer-status.connected { color: var(--teal); }
+
+.stage {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  background: #000;
+  display: flex;
+}
+
+.player-wrap {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#movie {
+  width: 100%;
+  height: 100%;
+  background: #000;
+}
+
+.picker-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-align: center;
+  padding: 24px;
+  background: rgba(18,16,20,0.92);
+}
+.picker-overlay p { margin: 0; }
+.picker-hint {
+  max-width: 380px;
+  color: var(--text-dim2);
+  font-size: 0.85rem;
+  margin-bottom: 12px !important;
+}
+
+.file-btn { position: relative; overflow: hidden; margin-top: 6px; }
+.file-btn input[type="file"] {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Floating call widget — visually separate from the movie screen */
+.call-widget {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  width: 220px;
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.5);
+  z-index: 5;
+}
+
+.call-videos {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  background: #000;
+}
+#remote-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+#local-video {
+  position: absolute;
+  width: 34%;
+  right: 8px;
+  bottom: 8px;
+  border-radius: 6px;
+  border: 1px solid rgba(255,255,255,0.25);
+  object-fit: cover;
+  transform: scaleX(-1); /* mirror, feels natural for your own webcam */
+}
+
+.call-controls {
+  display: flex;
+  gap: 6px;
+  padding: 8px;
+}
+
+.pill-btn {
+  flex: 1;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  color: var(--text-dim2);
+  border-radius: 7px;
+  padding: 7px 0;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.pill-btn.is-on {
+  color: var(--teal);
+  border-color: var(--teal);
+}
+.pill-btn.is-off {
+  color: var(--danger);
+  border-color: var(--danger);
+}
+
+@media (max-width: 640px) {
+  .call-widget { width: 150px; right: 12px; bottom: 12px; }
+  .room-bar { flex-wrap: wrap; }
+}
